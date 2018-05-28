@@ -77,7 +77,7 @@
                         <td v-text="task.name"></td>
                         <td v-text="task.description"></td>
                         <td>
-                            <EditTask :task="task" :modal="true" @openModal="openEditModal"></EditTask>
+                            <EditTask :task="task" @openModal="openEditModal"></EditTask>
                         </td>
                     </tr>
                     </tbody>
