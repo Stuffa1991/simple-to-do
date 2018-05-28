@@ -47404,6 +47404,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -47672,82 +47675,89 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("table", { staticClass: "table table-striped" }, [
-          _vm._m(2),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.tasks, function(task, index) {
-              return _c("tr", [
-                _c("th", [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.tasksToDelete,
-                        expression: "tasksToDelete"
-                      }
-                    ],
-                    attrs: { type: "checkbox", id: task.id },
-                    domProps: {
-                      value: task.id,
-                      checked: Array.isArray(_vm.tasksToDelete)
-                        ? _vm._i(_vm.tasksToDelete, task.id) > -1
-                        : _vm.tasksToDelete
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.tasksToDelete,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = task.id,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.tasksToDelete = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.tasksToDelete = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
+        _vm.tasks.length > 0
+          ? _c("table", { staticClass: "table table-striped" }, [
+              _vm._m(2),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.tasks, function(task, index) {
+                  return _c("tr", [
+                    _c("th", [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.tasksToDelete,
+                            expression: "tasksToDelete"
                           }
-                        } else {
-                          _vm.tasksToDelete = $$c
+                        ],
+                        attrs: { type: "checkbox", id: task.id },
+                        domProps: {
+                          value: task.id,
+                          checked: Array.isArray(_vm.tasksToDelete)
+                            ? _vm._i(_vm.tasksToDelete, task.id) > -1
+                            : _vm.tasksToDelete
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.tasksToDelete,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = task.id,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 &&
+                                  (_vm.tasksToDelete = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.tasksToDelete = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.tasksToDelete = $$c
+                            }
+                          }
                         }
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("th", [
-                  _vm._v(
-                    "\n                        " +
-                      _vm._s(index + 1) +
-                      "\n                    "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("td", { domProps: { textContent: _vm._s(task.name) } }),
-                _vm._v(" "),
-                _c("td", {
-                  domProps: { textContent: _vm._s(task.description) }
-                }),
-                _vm._v(" "),
-                _c(
-                  "td",
-                  [
-                    _c("EditTask", {
-                      attrs: { task: task, modal: true },
-                      on: { openModal: _vm.openEditModal }
-                    })
-                  ],
-                  1
-                )
-              ])
-            })
-          )
-        ])
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("th", [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(index + 1) +
+                          "\n                    "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { domProps: { textContent: _vm._s(task.name) } }),
+                    _vm._v(" "),
+                    _c("td", {
+                      domProps: { textContent: _vm._s(task.description) }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "td",
+                      [
+                        _c("EditTask", {
+                          attrs: { task: task, modal: true },
+                          on: { openModal: _vm.openEditModal }
+                        })
+                      ],
+                      1
+                    )
+                  ])
+                })
+              )
+            ])
+          : _c("div", [
+              _vm._v(
+                "\n                Seem's like you haven't created any tasks yet.\n            "
+              )
+            ])
       ])
     ])
   ])

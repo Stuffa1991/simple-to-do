@@ -56,7 +56,7 @@
                         Delete selected
                     </button>
                 </div>
-                <table class="table table-striped">
+                <table v-if="tasks.length > 0" class="table table-striped">
                     <thead>
                     <tr>
                         <th scope="col"></th>
@@ -82,6 +82,9 @@
                     </tr>
                     </tbody>
                 </table>
+                <div v-else>
+                    Seem's like you haven't created any tasks yet.
+                </div>
             </div>
         </div>
     </div>
