@@ -100,7 +100,6 @@
             return {
                 tasks: [],
                 showCreate: false,
-                showEdit: false,
                 showEditModal: false,
                 tasksToDelete: [],
                 taskToEdit: {
