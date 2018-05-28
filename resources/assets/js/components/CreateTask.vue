@@ -33,8 +33,9 @@
         methods: {
             createTask: function (event) {
                 event.preventDefault();
-                if (this.taskName === '' || this.taskDescription === '') {
-                    this.taskHelp = this.taskName === '' ? 'You need a name for your task.' : 'You need a description for your task.';
+                if (this.name === '' || this.description === '') {
+                    this.help = this.name === '' ? 'You need a name for your task.' : 'You need a description for your task.';
+                    return;
                 }
                 var self = this;
 

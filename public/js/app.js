@@ -47402,6 +47402,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -47432,6 +47434,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         newTask: function newTask(task) {
             this.tasks.push(task);
+            this.showCreate = false;
         },
         openEditModal: function openEditModal(task) {
             this.taskToEdit.name = task.name;
@@ -47645,21 +47648,29 @@ var render = function() {
       _c("div", { staticClass: "col-md-12" }, [
         _vm._m(1),
         _vm._v(" "),
-        _vm.tasksToDelete.length > 0
-          ? _c(
-              "button",
-              {
-                staticClass: "btn btn-danger delete",
-                attrs: { type: "button" },
-                on: {
-                  click: function($event) {
-                    _vm.deleteTask()
-                  }
+        _c("div", { staticClass: "delete-spacing" }, [
+          _c(
+            "button",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.tasksToDelete.length > 0,
+                  expression: "tasksToDelete.length > 0"
                 }
-              },
-              [_vm._v("\n                Delete selected\n            ")]
-            )
-          : _vm._e(),
+              ],
+              staticClass: "btn btn-danger delete",
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  _vm.deleteTask()
+                }
+              }
+            },
+            [_vm._v("\n                    Delete selected\n                ")]
+          )
+        ]),
         _vm._v(" "),
         _c("table", { staticClass: "table table-striped" }, [
           _vm._m(2),
@@ -47903,8 +47914,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         createTask: function createTask(event) {
             event.preventDefault();
-            if (this.taskName === '' || this.taskDescription === '') {
-                this.taskHelp = this.taskName === '' ? 'You need a name for your task.' : 'You need a description for your task.';
+            if (this.name === '' || this.description === '') {
+                this.help = this.name === '' ? 'You need a name for your task.' : 'You need a description for your task.';
+                return;
             }
             var self = this;
 

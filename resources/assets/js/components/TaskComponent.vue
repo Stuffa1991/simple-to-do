@@ -50,10 +50,12 @@
                     </div>
                 </div>
 
-                <button v-if="tasksToDelete.length > 0" @click="deleteTask()" type="button"
-                        class="btn btn-danger delete">
-                    Delete selected
-                </button>
+                <div class="delete-spacing">
+                    <button v-show="tasksToDelete.length > 0" @click="deleteTask()" type="button"
+                            class="btn btn-danger delete">
+                        Delete selected
+                    </button>
+                </div>
                 <table class="table table-striped">
                     <thead>
                     <tr>
@@ -119,6 +121,7 @@
             },
             newTask: function (task) {
                 this.tasks.push(task);
+                this.showCreate = false;
             },
             openEditModal: function (task) {
                 this.taskToEdit.name = task.name;
