@@ -50,11 +50,11 @@ class TaskService implements TaskServiceInterface
     public function createTask(User $user, string $name, string $description)
     {
         // Create task with information
-        $user->tasks()->create([
+        $task = $user->tasks()->create([
             'name' => $name,
             'description' => $description
         ]);
-        return true;
+        return $task;
     }
 
     /**
@@ -82,32 +82,13 @@ class TaskService implements TaskServiceInterface
 
     /**
      * @param User $user
-     * @param int $id
-     * @return bool|mixed
-     * @throws TaskServiceException
-     */
-    public function deleteTask(User $user, int $id)
-    {
-        // Find first task with that id
-        $task = $user->tasks()->where('id', $id)->first();
-        // If no task was found throw an exception
-        if (!$task) {
-            throw new TaskServiceException('There is no such task with that id.');
-        }
-        $task->delete();
-        return true;
-    }
-
-    /**
-     * @param User $user
      * @param array $ids
      * @return bool|mixed
-     * @throws TaskServiceException
      */
     public function deleteTasks(User $user, array $ids)
     {
-        // Delete all tasks with ids
         (new Task)->destroy($ids);
         return true;
     }
+
 }

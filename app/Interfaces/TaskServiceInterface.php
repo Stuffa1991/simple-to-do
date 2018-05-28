@@ -36,14 +36,7 @@ interface TaskServiceInterface
      * @return mixed
      */
     public function editTask(User $user, int $id, string $name, string $description);
-
-    /**
-     * @param User $user
-     * @param int $id
-     * @return mixed
-     */
-    public function deleteTask(User $user, int $id);
-
+    
     /**
      * @param User $user
      * @param array $ids

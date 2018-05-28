@@ -31,7 +31,7 @@ class TaskController extends Controller
         return response()->json([
             'success' => true,
             'tasks' => $tasks
-        ], 400);
+        ]);
     }
 
     /**
@@ -57,7 +57,7 @@ class TaskController extends Controller
         return response()->json([
             'success' => true,
             'task' => $task
-        ], 400);
+        ]);
     }
 
     /**
@@ -73,7 +73,7 @@ class TaskController extends Controller
         ]);
 
         try {
-            $taskService->createTask(Auth::user(), $request->input('name'), $request->input('description'));
+            $task = $taskService->createTask(Auth::user(), $request->input('name'), $request->input('description'));
         } catch (TaskServiceException $ex) {
             return response()->json([
                 'success' => false,
@@ -83,7 +83,8 @@ class TaskController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Task was successfully created.'
+            'message' => 'Task was successfully created.',
+            'task' => $task
         ]);
     }
 
@@ -124,33 +125,12 @@ class TaskController extends Controller
     public function delete(Request $request, TaskService $taskService)
     {
         $request->validate([
-            'id' => 'required|integer'
+            'id' => 'required|array',
+            'id.*' => 'int'
         ]);
 
         try {
-            $taskService->deleteTask(Auth::user(), $request->input('id'));
-        } catch (TaskServiceException $ex) {
-            return response()->json([
-                'success' => false,
-                'error' => $ex->getMessage()
-            ], 400);
-        }
-
-        return response()->json([
-            'success' => true,
-            'message' => 'Task was successfully deleted.'
-        ]);
-    }
-
-    public function deleteMany(Request $request, TaskService $taskService)
-    {
-        $request->validate([
-            'ids' => 'required|array',
-            'ids.*' => 'int'
-        ]);
-
-        try {
-            $taskService->deleteTasks(Auth::user(), $request->input('ids'));
+            $taskService->deleteTasks(Auth::user(), $request->input('id'));
         } catch (TaskServiceException $ex) {
             return response()->json([
                 'success' => false,
