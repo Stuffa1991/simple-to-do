@@ -31,7 +31,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the comments for the blog post.
+     * Get the tasks that belongs to the user
      */
     public function tasks()
     {
