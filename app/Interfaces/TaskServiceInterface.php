@@ -49,5 +49,5 @@ interface TaskServiceInterface
      * @param array $ids
      * @return mixed
      */
-    public function deleteTasks(USer $user, array $ids);
+    public function deleteTasks(User $user, array $ids);
 }
