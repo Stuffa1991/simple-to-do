@@ -163,6 +163,7 @@
                         self.tasks = self.tasks.filter(function (obj) {
                             return self.tasksToDelete.indexOf(obj.id) === -1
                         });
+                        self.tasksToDelete = [];
                     })
                     .catch(function (error) {
                         self.help = error.error;
