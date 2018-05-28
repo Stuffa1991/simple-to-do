@@ -149,7 +149,6 @@
                         self.tasks[findIndex].description = self.taskToEdit.description;
                     })
                     .catch(function (error) {
-                        self.help = error.error;
                     });
 
             },
@@ -165,7 +164,6 @@
                         self.tasksToDelete = [];
                     })
                     .catch(function (error) {
-                        self.help = error.error;
                     });
             }
         },
