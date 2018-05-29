@@ -112,7 +112,6 @@
         methods: {
             getTasks: function () {
                 var self = this;
-                // Make a request for a user with a given ID
                 axios.get('/api/tasks/all')
                     .then(function (response) {
                         self.tasks = response.data.tasks;
