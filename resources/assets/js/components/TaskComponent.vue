@@ -83,7 +83,7 @@
                     </tbody>
                 </table>
                 <div v-else>
-                    Seem's like you haven't created any tasks yet.
+                    Seems like you haven't created any tasks yet.
                 </div>
             </div>
         </div>
