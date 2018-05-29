@@ -1,7 +1,7 @@
 # simple-to-do
 Simple to-do task manager
 
-1. Run `composer require`
+1. Run `composer install`
 2. Run `npm install`
 3. Create db - simple_todo (utf8mb4_general_ci)
 4. Run `cp .env.example .env`
