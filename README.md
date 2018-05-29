@@ -9,4 +9,5 @@ Simple to-do task manager
 6. Run `php artisan migrate:install`
 7. Run `php artisan migrate`
 8. Run `npm run dev`
-9. Run `php artisan serve` visit example at the ip addressed.
+9. Run `php artisan key:generate`
+10. Run `php artisan serve` visit example at the ip addressed.
