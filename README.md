@@ -11,5 +11,3 @@ Simple to-do task manager
 8. Run `npm run dev`
 9. Run `php artisan key:generate`
 10. Run `php artisan serve` visit example at the ip addressed.
-
-# LIVE DEMO - http://167.99.136.140/
